@@ -2,4 +2,6 @@ self: play -> s3blobs 0.14
 
 require:
     - play
-    - com.amazonaws -> aws-java-sdk-s3 1.11.909
+    - com.amazonaws -> aws-java-sdk-s3 1.11.993
+    - org.hibernate -> hibernate-core 5.4.30.Final:
+          force: true
