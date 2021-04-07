@@ -22,5 +22,12 @@ public class S3Blobs extends PlayPlugin {
 		S3Blob.s3Bucket = Play.configuration.getProperty("s3.bucket");
 		S3Blob.serverSideEncryption = ConfigHelper.getBoolean("s3.useServerSideEncryption", true);
 		S3Blob.s3Client = new AmazonS3Client();
+
+		// Set endpoint
+		String s3Endpoint = Play.configuration.getProperty("s3.endpoint");
+		Logger.info("Using S3 endpoint ["+ s3Endpoint +"]");
+		if (s3Endpoint != null) {
+			S3Blob.s3Client.setEndpoint(s3Endpoint);
+		}
 	}
 }
